@@ -22,9 +22,8 @@ public class Singleton<T> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     private T getArrayEntry() {
-        return (T)INDIRECT_INSTANCE_REF[0];
+        return Cast.it(INDIRECT_INSTANCE_REF[0]);
     }
 }
 
