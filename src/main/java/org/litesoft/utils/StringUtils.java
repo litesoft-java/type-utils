@@ -69,26 +69,4 @@ public class StringUtils {
         String wrapper = wasString ? "'" : "";
         return sb.append( wrapper ).append( str ).append( wrapper );
     }
-
-    /**
-     * A String Supplier (proxy with Caching) - NOT Thread Safe!
-     */
-    public static class SupplierWithCaching implements Supplier<String> {
-        private final Supplier<String> supplier;
-        private String value;
-        private boolean populated;
-
-        public SupplierWithCaching( Supplier<String> pSupplier ) {
-            supplier = pSupplier;
-        }
-
-        @Override
-        public String get() {
-            if ( !populated ) {
-                populated = true;
-                value = supplier.get();
-            }
-            return value;
-        }
-    }
 }
