@@ -5,6 +5,8 @@ import java.util.function.Supplier;
 /**
  * A Supplier (proxy with Caching) - NOT Thread Safe!
  */
+// Needs a Test!
+@SuppressWarnings("unused")
 public class SupplierWithCaching<T> implements Supplier<T> {
     private final Supplier<T> supplier;
     private T value;
