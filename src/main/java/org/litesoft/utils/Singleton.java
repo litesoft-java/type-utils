@@ -23,7 +23,7 @@ public class Singleton<T> {
     }
 
     private T getArrayEntry() {
-        return Cast.it(INDIRECT_INSTANCE_REF[0]);
+        return Cast.it( INDIRECT_INSTANCE_REF[0] );
     }
 }
 

@@ -19,6 +19,7 @@ class TemplatedMessageTest {
             return super.applyTemplating();
         }
     }
+
     @Test
     void test_ToString() {
         String expectedMsg = "error on 'besty' of: Fred";
@@ -48,13 +49,13 @@ class TemplatedMessageTest {
     void constructor() {
         expectedError( "" );
         expectedError( null );
-        assertEquals( "Fred.?dy?.", new TemplatedMessageException( "Fred.|dy|." ).getMessage());
+        assertEquals( "Fred.?dy?.", new TemplatedMessageException( "Fred.|dy|." ).getMessage() );
         TemplatedMessageException tme = new TemplatedMessageException( "error on '.|1|.'" );
-        assertEquals( "error on '.?1?.'" , tme.getMessage() );
+        assertEquals( "error on '.?1?.'", tme.getMessage() );
         tme.getTemplatedMessage().replaceIndexedFmtData( "Freddy" );
-        assertEquals( "error on '.?1?.'" , tme.getMessage() );
+        assertEquals( "error on '.?1?.'", tme.getMessage() );
         tme.getTemplatedMessage().replaceFmtString( "error on '.|0|.'" );
-        assertEquals( "error on 'Freddy'" , tme.getMessage() );
+        assertEquals( "error on 'Freddy'", tme.getMessage() );
     }
 
     void expectedError( String fmtString ) {

@@ -1,7 +1,5 @@
 package org.litesoft.utils;
 
-import java.util.function.Supplier;
-
 @SuppressWarnings("unused")
 public class StringUtils {
     public static String toErrorMsg( Exception e ) {

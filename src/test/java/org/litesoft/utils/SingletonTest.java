@@ -2,7 +2,7 @@ package org.litesoft.utils;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 class SingletonTest {
     private static final String VALUE = "Fred lives here";

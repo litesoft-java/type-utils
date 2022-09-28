@@ -64,7 +64,7 @@ public class HashCode {
     }
 
     public static int calc( long value ) {
-        return (int) (value ^ (value >>> 32)); // 'lifted' from Long
+        return (int)(value ^ (value >>> 32)); // 'lifted' from Long
     }
 
     public static int em( int hashCode1, int hashCode2 ) {

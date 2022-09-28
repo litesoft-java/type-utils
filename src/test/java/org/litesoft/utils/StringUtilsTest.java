@@ -20,7 +20,7 @@ class StringUtilsTest {
     @Test
     void toErrorMsg() {
         assertNull( StringUtils.toErrorMsg( null ) );
-        assertEquals( "Fred", StringUtils.toErrorMsg( new IllegalStateException("Fred") ) );
+        assertEquals( "Fred", StringUtils.toErrorMsg( new IllegalStateException( "Fred" ) ) );
         assertEquals( MyException.class.getSimpleName(), StringUtils.toErrorMsg( new MyException() ) );
     }
 

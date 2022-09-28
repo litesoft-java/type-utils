@@ -1,7 +1,6 @@
 package org.litesoft.utils;
 
 import org.litesoft.annotations.NotNull;
-import org.litesoft.annotations.Significant;
 
 /**
  * Class that provides the ability to substitute indexed (0-n) data into a format string (which may not be null or blank).
@@ -15,12 +14,12 @@ public class TemplatedMessageException extends RuntimeException {
     private final TemplatedMessage templatedMessage;
 
     public TemplatedMessageException( TemplatedMessage templatedMessage ) {
-        super(NotNull.AssertArgument.namedValue( "templatedMessage", templatedMessage ).toString());
+        super( NotNull.AssertArgument.namedValue( "templatedMessage", templatedMessage ).toString() );
         this.templatedMessage = templatedMessage;
     }
 
     public TemplatedMessageException( String fmtString, String... indexedFmtData ) {
-        this(new TemplatedMessage( fmtString, indexedFmtData ));
+        this( new TemplatedMessage( fmtString, indexedFmtData ) );
     }
 
     public TemplatedMessage getTemplatedMessage() {
