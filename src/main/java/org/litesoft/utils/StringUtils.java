@@ -1,5 +1,9 @@
 package org.litesoft.utils;
 
+import java.util.function.Consumer;
+
+import org.litesoft.annotations.Significant;
+
 @SuppressWarnings("unused")
 public class StringUtils {
     public static String toErrorMsg( Exception e ) {
@@ -22,6 +26,28 @@ public class StringUtils {
 
     public static String normalizeToEmpty( String value ) {
         return (value == null) ? "" : value.trim();
+    }
+
+    public static void assertMinLength( String what, String value, int minLength ) {
+        if ( value != null ) {
+            int actualLength = value.length();
+            if ( actualLength < minLength ) {
+                String sMin = Integer.toString( minLength );
+                String sActual = Integer.toString( actualLength );
+                what = Significant.ConstrainTo.valueOrNull( what );
+                what = (what == null) ? "" : (what + " ");
+                throw new TemplatedMessageException( ".||.was expected to be at least a length of .||., but was length was: .||.",
+                                                     what, sMin, sActual );
+            }
+        }
+    }
+
+    public static Consumer<String> assertMinLengthAsConsumer( String what, int minLength ) {
+        return value -> assertMinLength( what, value, minLength );
+    }
+
+    public static Consumer<String> assertMinLengthAsConsumer( int minLength ) {
+        return assertMinLengthAsConsumer( null, minLength );
     }
 
     public static String options( String labelSingularButPluralWithAnS, Object[] validOptions ) {
